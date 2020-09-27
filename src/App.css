@@ -1,38 +1,221 @@
-.App {
-  text-align: center;
+.main-wrapper {
+  width: 900px;
+  margin: 100px auto;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* TABROW */
+.tab-row {
+  width: 100%;
+  height: 60px;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  margin-bottom: 5px;
+}
+.tabrow__icon {
+  background: var(--dark2);
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  margin: 3px;
+}
+.tabrow__icon:hover {
+  background: var(--dark3);
+  cursor: pointer;
+}
+
+/* STATUS ROW */
+
+/* DASHBOARD */
+.dashboard {
+  width: 100%;
+  min-height: 617px;
+  /* background: var(--dark1); */
+  border-bottom: 3px solid var(--dark);
+  /* padding: 20px; */
+}
+/* statusrow */
+.status-row {
+  width: 100%;
+  display: flex;
+  /* align-items: center; */
+  justify-content: space-between;
+  flex-direction: row;
+  margin-bottom: 10px;
+  background: var(--dark1);
+  border-bottom: 2px solid var(--faded);
+  padding: 10px;
+  position: relative1;
+}
+.status-row__header {
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+}
+
+.status-row__data {
+  text-align: right;
+  width: 200px;
+}
+.weather-icon {
+  height: 64px;
+  width: 64px;
+  margin: -15px 0;
+}
+.status-row__data--loading {
+  font-size: 14px;
+}
+.status-row__mood {
+  display: flex;
+  align-items: center;
+  /* justify-content: center; */
+  flex-direction: column;
+  margin: auto;
+  padding: 10px;
+  border-radius: 10px;
+  transition: 0.3s ease-in-out;
+}
+.status-row__mood:hover {
+  background: var(--dark3);
+  transition: 0.3s ease-in-out;
+}
+.status-row__mood p {
+  font-size: 13px;
+  font-style: italic;
+  margin-bottom: 8px;
+}
+.mood-icon {
+  margin: 5px;
+  transition: 0.1s ease-in-out;
+  cursor: pointer;
+}
+.mood-icon:hover {
+  transition: 0.1s ease-in-out;
+}
+.mood-smile:hover {
+  color: rgb(120, 226, 120);
+}
+.mood-meh:hover {
+  color: rgb(177, 175, 175);
+}
+.mood-frown:hover {
+  color: rgb(56, 56, 131);
+}
+.status-row__mood__success {
+  position: absolute;
+  top: 210px;
+  left: 50%;
+  transition: 0.3s ease-in-out;
+}
+/* modules */
+.module-wrapper {
+  display: flex;
+  flex-direction: row;
+  padding-top: 15px;
+}
+.module {
+  width: 50%;
+}
+/* bookmark grid */
+.bookmark-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  grid-gap: 10px;
+}
+.bookmark-grid__item {
+  background: var(--dark2);
+  border-bottom: 2px solid var(--faded);
+  transition: 0.3s ease-in-out;
+  width: 100px;
+  height: 100px;
+}
+.bookmark-grid__item:hover {
+  background: var(--dark3);
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+}
+.grid-input-modal__element {
+  position: fixed;
+  margin: 0 auto;
+  height: 110px;
+  width: 220px;
+  background: var(--dark2);
+  border-radius: 10px;
+  /* display: flex; */
+  align-items: center;
+  justify-content: space-between;
+  padding: 30px;
+  flex-direction: column;
+  transition: 0.3s ease-in-out;
+  opacity: 0;
+  display: none;
+}
+.grid-input-modal__element--show {
+  display: flex;
+  left: 0;
+  right: 0;
+  top: 250px;
+  margin-left: auto;
+  margin-right: auto;
+  opacity: 100%;
+}
+.grid-input-modal__element p {
+  font-size: 12px;
+}
+.grid-input-modal__element input {
+  width: 70%;
+  height: 30px;
+  background: var(--dark3);
+  color: white;
+  border: 0;
+  border-radius: 5px;
+}
+.grid-input-modal__element button {
+  padding: 10px;
+  border: 0;
+  background: var(--dark4);
+  border-radius: 5px;
   color: white;
 }
-
-.App-link {
-  color: #61dafb;
+/* bookmark flow */
+.bookmark-flow {
+  display: flex;
+  flex-direction: column;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.bookmark-flow-row {
+  display: flex;
+  flex-direction: column;
+}
+.bookmark-flow-row__title {
+  color: var(--faded);
+  font-style: italic;
+  text-align: right;
+  margin-bottom: 5px;
+}
+.bookmark-flow-row__subrow {
+  display: flex;
+  height: 35px;
+  flex-direction: row-reverse;
+  flex-wrap: wrap;
+}
+.bookmark-flow-row__bookmark {
+  padding: 7px;
+  min-width: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--dark2);
+  border-bottom: 2px solid var(--dark);
+  transition: 0.3s ease-in-out;
+  margin: 3px;
+  color: var(--whitish);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: lighter;
+}
+.bookmark-flow-row__bookmark:hover {
+  background: var(--dark3);
+  transition: 0.3s ease-in-out;
+  cursor: pointer;
 }
