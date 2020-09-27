@@ -1,13 +1,9 @@
 import React, { useState, useEffect, useRef } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faSun,
   faSmile,
   faMehBlank,
   faFrown,
-  faCheckDouble,
-  faCheck,
-  faBorderStyle,
 } from "@fortawesome/free-solid-svg-icons";
 import "./App.css";
 
@@ -17,22 +13,6 @@ import { updateTime, currentTime } from "./services/time";
 import Stats from "./components/Stats";
 import BookmarkTiles from "./components/BookmarkTiles";
 import BookmarkModal from "./components/BookmarkModal";
-
-const grid = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
-const book = [
-  "/b/",
-  "/gif/",
-  "/g/",
-  "/b/",
-  "/gif/",
-  "/g/",
-  "/b/",
-  "/gif/",
-  "/g/",
-  "/b/",
-  "/gif/",
-  "/g/",
-];
 
 function App() {
   const [currentTab, setCurrentTab] = useState("home");

@@ -6,7 +6,7 @@ export default function BookmarkTiles({ bookmarks, toggleModal }) {
   return (
     <>
       <div className="bookmark-grid">
-        {bookmarks.length == 0 ? (
+        {bookmarks.length === 0 ? (
           <p className="bookmark-grid__empty">
             <FontAwesomeIcon
               icon={faLevelDownAlt}
@@ -25,6 +25,7 @@ export default function BookmarkTiles({ bookmarks, toggleModal }) {
               <img
                 src={tile + "/favicon.ico"}
                 className="bookmark-grid__item__favicon"
+                alt={tile}
               ></img>
             </a>
           ))
