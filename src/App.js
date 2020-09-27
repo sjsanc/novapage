@@ -16,6 +16,7 @@ import { updateTime, currentTime } from "./services/time";
 
 import Stats from "./components/Stats";
 import BookmarkTiles from "./components/BookmarkTiles";
+import BookmarkModal from "./components/BookmarkModal";
 
 const grid = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
 const book = [
@@ -40,8 +41,10 @@ function App() {
   const [name, setName] = useState("Steven");
   const [moodCheck, setMoodCheck] = useState(false);
   const [time, setTime] = useState("00:00");
+  const [bookmarkList, setBookmarkList] = useState([]);
 
   const moodEl = useRef(null);
+  const modalEl = useRef(null);
 
   const KEY = "ed4c15476d9b8e4491c4642193c287ad";
 
@@ -64,8 +67,9 @@ function App() {
 
   // Debug
   const log = () => {
-    console.log(location);
-    console.log(weather);
+    // console.log(location);
+    // console.log(weather);
+    console.log(bookmarkList);
   };
 
   // Set & update time
@@ -79,26 +83,26 @@ function App() {
     setMoodCheck(true);
   };
 
-  const modalEl = useRef(null);
-
   const toggleModal = () => {
-    modalEl.current.classList.toggle("show-modal");
-    console.log("hi");
+    modalEl.current.classList.toggle("bookmark-grid__modal--show-modal");
+  };
+
+  const submitBookmarkList = (list) => {
+    console.log("set");
+    setBookmarkList(list);
+    toggleModal();
   };
 
   return (
     <div className="App">
-      <div className="modal" ref={modalEl}>
-        <div className="modal-content">
-          <span className="close" onClick={toggleModal}>
-            &times;
-          </span>
-          <h1>Hello</h1>
-        </div>
-      </div>
-
       <div className="main-wrapper">
-        <button onClick={toggleModal}>Click me</button>
+        <BookmarkModal
+          bookmarkList={bookmarkList}
+          modalEl={modalEl}
+          toggleModal={toggleModal}
+          submitBookmarkList={submitBookmarkList}
+        />
+
         <div className="tab-row">
           <div className="tabrow__icon" id="home" onClick={changeTab}></div>
           <div className="tabrow__icon" id="games" onClick={changeTab}></div>
@@ -145,7 +149,10 @@ function App() {
                   temp={weather.temp}
                 />
               </div>
-              <BookmarkTiles bookmarks={grid} />
+              <BookmarkTiles
+                bookmarks={bookmarkList}
+                toggleModal={toggleModal}
+              />
             </>
           )}
         </div>

@@ -7,6 +7,6 @@ export const currentTime = () => {
 };
 
 export const updateTime = (time, setTime) => {
-  console.log(time);
+  // console.log(time);
   setTime(time);
 };

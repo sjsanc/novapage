@@ -148,15 +148,33 @@
   transition: 0.3s ease-in-out;
   width: 100px;
   height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .bookmark-grid__item:hover {
   background: var(--dark3);
   cursor: pointer;
   transition: 0.3s ease-in-out;
 }
+.bookmark-grid__item__favicon {
+  height: 24px;
+  width: 24px;
+}
+.bookmark-grid__empty {
+  padding: 15px;
+  border-radius: 5px;
+  background: var(--dark2);
+  font-size: 11px;
+  width: 450px;
+}
+.bookmark-grid__empty__arrow {
+  transform: scaleX(-1);
+  margin-right: 10px;
+}
 
 /* MODAL */
-.modal {
+.bookmark-grid__modal {
   position: fixed;
   left: 0;
   top: 0;
@@ -168,31 +186,52 @@
   transform: scale(1.1);
   transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s;
 }
-.modal-content {
+.bookmark-grid__modal__content {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: white;
-  padding: 1rem 1.5rem;
-  width: 24rem;
+  background-color: var(--dark2);
+  padding: 15px;
+  width: 500px;
   border-radius: 0.5rem;
 }
-.close-button {
+.bookmark-grid__modal__submit {
+  border: 0;
+  background: var(--dark3);
+  padding: 10px;
+  color: var(--whitish);
+  font-weight: bold;
+  border-radius: 5px;
+  margin-top: 5px;
+}
+.bookmark-grid__modal__submit:hover {
+  background: var(--dark4);
+}
+.bookmark-grid__modal__close {
   float: right;
   width: 1.5rem;
   line-height: 1.5rem;
   text-align: center;
   cursor: pointer;
   border-radius: 0.25rem;
-  background-color: lightgray;
+  background-color: var(--dark3);
 }
-.close-button:hover {
-  background-color: darkgray;
+.bookmark-grid__modal__close:hover {
+  background-color: var(--dark4);
 }
-.show-modal {
+.bookmark-grid__modal--show-modal {
   opacity: 1;
   visibility: visible;
   transform: scale(1);
   transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
+}
+.bookmark-grid__modal textarea {
+  width: 90%;
+  border: 0;
+  background: var(--dark3);
+  border-radius: 5px;
+  min-height: 100px;
+  margin-top: 14px;
+  color: var(--whitish);
 }

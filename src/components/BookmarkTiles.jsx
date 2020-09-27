@@ -1,13 +1,19 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBookmark } from "@fortawesome/free-solid-svg-icons";
+import { faBookmark, faLevelDownAlt } from "@fortawesome/free-solid-svg-icons";
 
-export default function BookmarkTiles({ bookmarks }) {
+export default function BookmarkTiles({ bookmarks, toggleModal }) {
   return (
     <>
       <div className="bookmark-grid">
         {bookmarks.length == 0 ? (
-          <div className="bookmark-grid__empty">Add some bookmarks</div>
+          <p className="bookmark-grid__empty">
+            <FontAwesomeIcon
+              icon={faLevelDownAlt}
+              className={"bookmark-grid__empty__arrow"}
+            />
+            Click edit to get started on your bookmark list.
+          </p>
         ) : (
           bookmarks.map((tile, i) => (
             <a
@@ -15,11 +21,16 @@ export default function BookmarkTiles({ bookmarks }) {
               key={bookmarks[i]}
               onContextMenu={(e) => console.log("hi")}
               className="bookmark-grid__item"
-            ></a>
+            >
+              <img
+                src={tile + "/favicon.ico"}
+                className="bookmark-grid__item__favicon"
+              ></img>
+            </a>
           ))
         )}
       </div>
-      <div className="bookmark-grid__config">
+      <div className="bookmark-grid__config" onClick={toggleModal}>
         <FontAwesomeIcon icon={faBookmark} />
         <p>Edit Bookmarks</p>
       </div>
