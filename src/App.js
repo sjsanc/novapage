@@ -39,7 +39,6 @@ function App() {
   const [weather, setWeather] = useState({});
   const [name, setName] = useState("Steven");
   const [moodCheck, setMoodCheck] = useState(false);
-  const [gridModal, checkGridModal] = useState(false);
   const [time, setTime] = useState("00:00");
 
   const moodEl = useRef(null);
@@ -81,28 +80,29 @@ function App() {
   };
 
   const modalEl = useRef(null);
-  const handleGridRightClick = (e) => {
-    e.preventDefault();
-    checkGridModal(true);
-    modalEl.current.classList.add("grid-input-modal__element--show");
-  };
-  const handleGridSubmit = () => {
-    checkGridModal(false);
+
+  const toggleModal = () => {
+    modalEl.current.classList.toggle("show-modal");
+    console.log("hi");
   };
 
   return (
     <div className="App">
+      <div className="modal" ref={modalEl}>
+        <div className="modal-content">
+          <span className="close" onClick={toggleModal}>
+            &times;
+          </span>
+          <h1>Hello</h1>
+        </div>
+      </div>
+
       <div className="main-wrapper">
+        <button onClick={toggleModal}>Click me</button>
         <div className="tab-row">
           <div className="tabrow__icon" id="home" onClick={changeTab}></div>
           <div className="tabrow__icon" id="games" onClick={changeTab}></div>
           <div className="tabrow__icon" id="tree" onClick={log}></div>
-        </div>
-
-        <div className="grid-input-modal__element" ref={modalEl}>
-          <p>Enter a bookmark link</p>
-          <input></input>
-          <button onClick={handleGridSubmit}>Submit</button>
         </div>
 
         <div className="dashboard">
@@ -145,21 +145,7 @@ function App() {
                   temp={weather.temp}
                 />
               </div>
-              <div className="module-wrapper">
-                <BookmarkTiles bookmarks={grid} />
-                <div className="module bookmark-flow">
-                  <div className="bookmark-flow-row">
-                    <p className="bookmark-flow-row__title">4chan</p>
-                    <div className="bookmark-flow-row__subrow">
-                      {book.map((x) => (
-                        <a href="#" className="bookmark-flow-row__bookmark">
-                          {x}
-                        </a>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </div>
+              <BookmarkTiles bookmarks={grid} />
             </>
           )}
         </div>
