@@ -66,10 +66,9 @@
 .status-row__mood {
   display: flex;
   align-items: center;
-  /* justify-content: center; */
+  justify-content: center;
   flex-direction: column;
-  /* margin: auto; */
-  padding: 10px;
+  padding: 0 10px;
   border-radius: 10px;
   transition: 0.3s ease-in-out;
 }
@@ -77,10 +76,21 @@
   background: var(--dark3);
   transition: 0.3s ease-in-out;
 }
-.status-row__mood p {
-  font-size: 13px;
+.status-row__mood__showBoard {
+  position: absolute;
+  right: 140px;
+  top: 136px;
+  font-size: 12px;
   font-style: italic;
-  margin-bottom: 8px;
+  margin-top: auto;
+  cursor: pointer;
+  padding: 6px;
+  transition: 0.3s ease-in-out;
+}
+.status-row__mood__showBoard:hover {
+  background: var(--dark3);
+  border-radius: 5px;
+  transition: 0.3s ease-in-out;
 }
 .mood-icon {
   margin: 5px;
@@ -160,6 +170,7 @@
 .bookmark-grid__item__favicon {
   height: 24px;
   width: 24px;
+  border-radius: 50%;
 }
 .bookmark-grid__empty {
   padding: 15px;
@@ -234,4 +245,5 @@
   min-height: 100px;
   margin-top: 14px;
   color: var(--whitish);
+  resize: none;
 }

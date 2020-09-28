@@ -2,6 +2,8 @@ import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBookmark, faLevelDownAlt } from "@fortawesome/free-solid-svg-icons";
 
+import { defaultLink } from "../assets/link.png";
+
 export default function BookmarkTiles({ bookmarks, toggleModal }) {
   return (
     <>
@@ -25,7 +27,6 @@ export default function BookmarkTiles({ bookmarks, toggleModal }) {
               <img
                 src={tile + "/favicon.ico"}
                 className="bookmark-grid__item__favicon"
-                alt={tile}
               ></img>
             </a>
           ))

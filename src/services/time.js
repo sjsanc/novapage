@@ -7,6 +7,13 @@ export const currentTime = () => {
 };
 
 export const updateTime = (time, setTime) => {
-  // console.log(time);
   setTime(time);
+};
+
+// https://stackoverflow.com/questions/8583694/determine-minutes-until-midnight
+export const minsToMidnight = () => {
+  var now = new Date();
+  var then = new Date(now);
+  then.setHours(24, 0, 0, 0);
+  return (then - now) / 6e4;
 };
