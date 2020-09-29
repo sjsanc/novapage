@@ -1,16 +1,13 @@
 import React, { useState, useEffect, useRef } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faSmile,
-  faMehBlank,
-  faFrown,
-} from "@fortawesome/free-solid-svg-icons";
+import { faThLarge } from "@fortawesome/free-solid-svg-icons";
 
 import "./App.css";
 
 import { getLocation, getWeather } from "./services/weather";
 import { updateTime, currentTime, minsToMidnight } from "./services/time";
 import { queryNewDay, selectMood, showMoodBoard } from "./services/moodTracker";
+import { handleGearClick } from "./services/controlPanel";
 
 import Stats from "./components/Stats";
 import BookmarkTiles from "./components/BookmarkTiles";
@@ -18,6 +15,8 @@ import BookmarkModal from "./components/BookmarkModal";
 import Scratchpad from "./components/Scratchpad";
 import TabRow from "./components/TabRow";
 import Moodlet from "./components/Moodlet";
+import ControlPanel from "./components/ControlPanel";
+import Moodboard from "./components/Moodboard";
 
 import CONFIG from "./config/config.json";
 
@@ -119,26 +118,30 @@ function App() {
                   <h1>Welcome,</h1>
                   <h1>{CONFIG.name}</h1>
                 </div>
-                {moodPrompt && (
-                  <Moodlet
-                    selectMood={selectMood}
-                    moodEl={moodEl}
-                    setMoodPrompt={setMoodPrompt}
-                  />
-                )}
+                <Moodlet
+                  selectMood={selectMood}
+                  moodEl={moodEl}
+                  setMoodPrompt={setMoodPrompt}
+                  moodPrompt={moodPrompt}
+                />
                 <Stats
                   time={time}
                   weatherCode={weather.icon}
                   weather={weather.weather}
                   temp={weather.temp}
                 />
-                <p
+                {/* <div
                   className="status-row__mood__showBoard"
                   onClick={showMoodBoard}
                 >
-                  Show moodboard
-                </p>
+                  <FontAwesomeIcon icon={faThLarge} />
+                </div> */}
+                <ControlPanel
+                  handleGearClick={handleGearClick}
+                  showMoodBoard={showMoodBoard}
+                />
               </div>
+              <Moodboard />
               <BookmarkTiles
                 bookmarks={bookmarkList}
                 toggleModal={toggleModal}

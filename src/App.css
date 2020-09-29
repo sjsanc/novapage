@@ -35,57 +35,65 @@
 /* statusrow */
 .status-row {
   width: 100%;
+  min-height: 120px;
   display: flex;
   /* align-items: center; */
   justify-content: space-between;
   flex-direction: row;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
   background: var(--dark1);
   border-bottom: 2px solid var(--faded);
   padding: 10px;
-  position: relative1;
+  position: relative;
 }
 .status-row__header {
   display: flex;
   flex-direction: column;
   width: 200px;
+  margin-top: auto;
 }
 
 .status-row__data {
   text-align: right;
   width: 200px;
 }
+.status-row__data h2 {
+  font-size: 45px;
+}
 .weather-icon {
-  height: 64px;
-  width: 64px;
+  height: 72px;
+  width: 72px;
   margin: -15px 0;
 }
 .status-row__data--loading {
   font-size: 14px;
 }
 .status-row__mood {
+}
+.status-row__mood__moodlets {
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-direction: column;
-  padding: 0 10px;
+  flex-direction: row;
+  padding: 10px;
   border-radius: 10px;
   transition: 0.3s ease-in-out;
 }
-.status-row__mood:hover {
+.status-row__mood__moodlets:hover {
   background: var(--dark3);
   transition: 0.3s ease-in-out;
 }
 .status-row__mood__showBoard {
   position: absolute;
-  right: 140px;
-  top: 136px;
   font-size: 12px;
+  padding: 10px;
   font-style: italic;
-  margin-top: auto;
   cursor: pointer;
-  padding: 6px;
   transition: 0.3s ease-in-out;
+}
+.status-row__mood__showBoard--visible {
+  opacity: 100;
+  pointer-events: auto;
 }
 .status-row__mood__showBoard:hover {
   background: var(--dark3);
@@ -115,6 +123,101 @@
   left: 50%;
   transition: 0.3s ease-in-out;
 }
+.status-row__control {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  background: var(--dark1);
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+}
+.status-row__control__gearbox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.status-row__control__gear {
+  padding: 5px;
+  transition: 0.3s ease-in-out;
+}
+.status-row__control__gear--spin {
+  transform: rotate(180deg);
+}
+.status-row__control__gearbox:hover {
+  border-radius: 5px;
+  background: var(--dark4);
+  transition: 0.1s ease-in-out;
+}
+.status-row__control__tray {
+  width: 140px;
+  height: 26px;
+  /* padding: 5px 0; */
+  display: flex;
+  align-items: center;
+  background: var(--dark2);
+  border-radius: 15px;
+}
+.status-row__control__cover {
+  width: 140px;
+  height: 26px;
+  position: absolute;
+  right: 0;
+  background: var(--dark1);
+  transition: 0.3s ease-in-out;
+}
+.status-row__control__cover--hidden {
+  width: 0px;
+  transition: 0.3s ease-in-out;
+}
+.status-row__control__icon {
+  padding: 5px;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-left: 5px;
+}
+.status-row__control__icon:hover {
+  /* background-color: var(--faded); */
+  color: white;
+  transition: 0.1s ease-in-out;
+}
+
+/* MOoDBOARD */
+.moodboard {
+  /* visibility: hidden; */
+  height: 0;
+  width: 100%;
+  padding: 0 10px;
+  /* background: linear-gradient(
+    0deg,
+    rgba(23, 23, 28, 1) 0%,
+    rgba(11, 11, 14, 1) 10%
+  ); */
+  transition: 0.3s ease-in-out;
+
+  display: grid;
+  grid-template-columns: repeat(52, 1fr);
+  grid-template-rows: repeat(7, 1fr);
+  grid-gap: 4px;
+  opacity: 0;
+}
+.moodboard__day {
+  background: var(--dark3);
+  border: 1px solid var(--dark4);
+  opacity: 100;
+  transition: 0.3s ease-in-out;
+}
+.moodboard--visible {
+  /* visibility: visible; */
+  height: 100px;
+  padding: 10px;
+  margin-bottom: 10px;
+  opacity: 100;
+  border-bottom: 2px solid var(--faded);
+  transition: 0.3s ease-in-out;
+}
+
 /* modules */
 .module-wrapper {
   display: flex;
@@ -140,7 +243,7 @@
   padding: 8px;
   border-radius: 5px;
   width: 120px;
-  margin-top: 10px;
+  margin-top: 5px;
   transition: 0.3s ease-in-out;
 }
 .bookmark-grid__config:hover {
@@ -178,6 +281,7 @@
   background: var(--dark2);
   font-size: 11px;
   width: 450px;
+  margin-top: 5px;
 }
 .bookmark-grid__empty__arrow {
   transform: scaleX(-1);

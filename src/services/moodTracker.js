@@ -24,5 +24,5 @@ export const queryNewDay = () => {
 };
 
 export const showMoodBoard = () => {
-  console.log("hi");
+  document.getElementById("moodboard").classList.toggle("moodboard--visible");
 };
