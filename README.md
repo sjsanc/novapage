@@ -1,5 +1,7 @@
 ## Novapage
 
+![Moodboard gif](/src/assets/moodboard.gif)
+
 A configurable and interactive startpage that runs on a local webserver like http-server
 
 Todo:
