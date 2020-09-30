@@ -32,7 +32,7 @@ export default function BookmarkModal({
           className="bookmark-grid__modal__submit"
           onClick={() => {
             // submit input state to primary bookmarkList state
-            submitBookmarkList(listParser(input));
+            submitBookmarkList(listParser(input, true));
           }}
         >
           SUBMIT

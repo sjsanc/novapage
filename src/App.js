@@ -92,6 +92,7 @@ function App() {
     // localStorage.removeItem("moodInterval");
     // setMoodCheck(false);
     // // console.log("Removing moodInterval");
+    console.log(localStorage.getItem("moodboard"));
   };
 
   return (
@@ -141,7 +142,7 @@ function App() {
                   showMoodBoard={showMoodBoard}
                 />
               </div>
-              <Moodboard />
+              <Moodboard moods={localStorage.getItem("moodboard")} />
               <BookmarkTiles
                 bookmarks={bookmarkList}
                 toggleModal={toggleModal}
