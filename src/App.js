@@ -143,10 +143,15 @@ function App() {
                 />
               </div>
               <Moodboard moods={localStorage.getItem("moodboard")} />
-              <BookmarkTiles
-                bookmarks={bookmarkList}
-                toggleModal={toggleModal}
-              />
+              <div className="module-wrapper">
+                <div className="bookmark-grid__wrapper">
+                  <BookmarkTiles
+                    bookmarks={bookmarkList}
+                    toggleModal={toggleModal}
+                  />
+                </div>
+                <Scratchpad />
+              </div>
             </>
           )}
         </div>

@@ -272,12 +272,17 @@
 .module-wrapper {
   display: flex;
   flex-direction: row;
-  padding-top: 15px;
+  justify-content: space-between;
+  width: 960px;
+  align-items: flex-start;
 }
-.module {
-  width: 50%;
-}
+
 /* bookmark grid */
+.bookmark-grid__wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
 .bookmark-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -401,3 +406,119 @@
   color: var(--whitish);
   resize: none;
 }
+
+/* SCRATCHPAD */
+.scratchpad {
+  width: 470px;
+  background: var(--dark2);
+  border-radius: 5px;
+  margin-top: 5px;
+  min-height: 44px;
+}
+.scratchpad__button {
+  width: 50%;
+  border: 0;
+  background: var(--dark2);
+  color: var(--faded);
+  font-style: italic;
+  height: 25px;
+  border-bottom: 1px solid var(--dark3);
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+  outline: none;
+}
+.scratchpad__button:hover {
+  background: var(--dark1);
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+  color: var(--whitish);
+}
+.scratchpad__button:active {
+  background-color: var(--dark3);
+}
+.scratchpad__button:first-of-type {
+  border-right: 1px solid var(--dark3);
+  border-radius: 5px 0 0 0;
+}
+.scratchpad__button:nth-of-type(2) {
+  border-radius: 0 5px 0 0;
+}
+
+/* pad */
+.scratchpad__body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px;
+}
+.scratchpad__editor {
+  width: 100%;
+  min-height: 30px;
+  /* overflow-y: auto;
+  word-wrap: break-word; */
+  background: none;
+  border: 0 !important;
+}
+.ql-container {
+  font-size: 15px !important;
+}
+.ql-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: -15px !important;
+}
+.ql-toolbar,
+.ql-container {
+  border: none !important;
+}
+
+/* NOTEPAD */
+.notepad {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  position: relative;
+}
+.notepad .quill {
+  width: 400px !important;
+  /* margin-left: auto; */
+}
+/* .notepad .ql-container {
+  width: 300px !important;
+  margin-left: auto;
+} */
+.notepad .ql-toolbar {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+}
+.notepad .ql-container {
+  margin-top: 20px;
+}
+.notepad__sidebar {
+  /* position: absolute; */
+  min-height: 40px;
+  width: 90px;
+  /* background: var(--dark3); */
+  margin-top: 30px;
+  margin-left: -14px;
+}
+
+.notepad__tab {
+  padding: 3px;
+  border-radius: 0 5px 5px 0;
+  text-align: center;
+  font-family: "Ubuntu", sans-serif;
+  font-size: 12px;
+  transition: 0.3s ease-in-out;
+  cursor: pointer;
+  margin-bottom: 2px;
+}
+.notepad__tab:hover {
+  background: var(--dark3);
+  transition: 0.3s ease-in-out;
+}
+/* #E26B4B */
