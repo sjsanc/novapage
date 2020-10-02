@@ -33,8 +33,10 @@ export const showMoodBoard = () => {
 
 export const paintMoodboard = (moods) => {
   let data = [];
-  for (let i = 0; i < moods.length; i++) {
-    data.push([moods[i]]);
+  if (moods.length > 0) {
+    for (let i = 0; i < moods.length; i++) {
+      data.push([moods[i]]);
+    }
   }
   return data;
 };

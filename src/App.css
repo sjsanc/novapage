@@ -346,6 +346,7 @@
 /* MODAL */
 .bookmark-grid__modal {
   position: fixed;
+  z-index: 100;
   left: 0;
   top: 0;
   width: 100%;
@@ -358,6 +359,7 @@
 }
 .bookmark-grid__modal__content {
   position: absolute;
+  z-index: 101;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -472,53 +474,3 @@
 .ql-container {
   border: none !important;
 }
-
-/* NOTEPAD */
-.notepad {
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  justify-content: space-between;
-  position: relative;
-}
-.notepad .quill {
-  width: 400px !important;
-  /* margin-left: auto; */
-}
-/* .notepad .ql-container {
-  width: 300px !important;
-  margin-left: auto;
-} */
-.notepad .ql-toolbar {
-  position: absolute;
-  left: 0;
-  right: 0;
-  margin: 0 auto;
-}
-.notepad .ql-container {
-  margin-top: 20px;
-}
-.notepad__sidebar {
-  /* position: absolute; */
-  min-height: 40px;
-  width: 90px;
-  /* background: var(--dark3); */
-  margin-top: 30px;
-  margin-left: -14px;
-}
-
-.notepad__tab {
-  padding: 3px;
-  border-radius: 0 5px 5px 0;
-  text-align: center;
-  font-family: "Ubuntu", sans-serif;
-  font-size: 12px;
-  transition: 0.3s ease-in-out;
-  cursor: pointer;
-  margin-bottom: 2px;
-}
-.notepad__tab:hover {
-  background: var(--dark3);
-  transition: 0.3s ease-in-out;
-}
-/* #E26B4B */
