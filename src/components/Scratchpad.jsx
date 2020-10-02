@@ -20,9 +20,11 @@ export default function Scratchpad() {
 
   const downloadStorage = () => {
     // download from localStorage and dump state
-    const contents = localStorage.getItem("scratchEditorContents");
-    // console.log(contents);
-    setScratchEditor(contents);
+    let contents;
+    if (localStorage.getItem("scratchEditorContents") != null) {
+      contents = localStorage.getItem("scratchEditorContents");
+      setScratchEditor(contents);
+    }
   };
 
   const saveToStorage = () => {

@@ -1,7 +1,10 @@
 export const listParser = (list, useHtml) => {
   const regexItem = /[^\s*;]*/gm;
   const regexHttps = /(https:\/\/)/;
-  const found = list.match(regexItem);
+  let found = [];
+  if (list != null) {
+    found = list.match(regexItem);
+  }
   let links = [];
   found.forEach((x) => {
     if (x.length !== 0) {
