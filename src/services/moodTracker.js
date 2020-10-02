@@ -33,7 +33,7 @@ export const showMoodBoard = () => {
 
 export const paintMoodboard = (moods) => {
   let data = [];
-  if (moods.length > 0) {
+  if (moods != null) {
     for (let i = 0; i < moods.length; i++) {
       data.push([moods[i]]);
     }
